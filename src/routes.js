@@ -9,85 +9,36 @@ import LoadingPage from "./pages/LoadingPage";
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
 const Services = React.lazy(() => import("./pages/Services"));
-const Question = React.lazy(() => import("./pages/Question"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const Post = React.lazy(() => import("./pages/Post"));
-const PostItem = React.lazy(() => import("./sections/Posts/PostItem"));
 
-export default function Router({ data }) {
+export default function Router() {
   const { t } = useTranslation();
 
   const routes = useRoutes([
     {
       path: "/",
-      element: <MainLayout data={data} />,
+      element: <MainLayout/>,
       children: [
         {
           path: "",
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Home data={data} />
+              <Home  />
             </Suspense>
           ),
         },
         {
-          path: t("gioithieu"),
+          path: t("about-us"),
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <About data={data}/>
+              <About />
             </Suspense>
           ),
         },
+        
         {
-          path: `${t("gioithieu")}/${t("sodo")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("sodo")} data_chart={data.chart}/>
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("gioithieu")}/${t("chucnang")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("chucnang")} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("gioithieu")}/${t("thanhtuu")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("thanhtuu")} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("gioithieu")}/${t("nangluc")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("nangluc")} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("gioithieu")}/${t("thuvien")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("thuvien")} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("gioithieu")}/${t("thuvien")}/:threadId`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <About page={t("album")} />
-            </Suspense>
-          ),
-        },
-        {
-          path: t("dichvu"),
+          path: t("applications"),
           element: (
             <Suspense fallback={<LoadingPage />}>
               <Services />
@@ -95,181 +46,84 @@ export default function Router({ data }) {
           ),
         },
         {
-          path: `${t("dichvu")}/${t("nguyhai")}`,
+          path: `${t("applications")}/${t("medical")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Services page={t("nguyhai")} />
+              <Services page={t("medical")} />
             </Suspense>
           ),
         },
         {
-          path: `${t("dichvu")}/${t("cokhi-xaydung")}`,
+          path: `${t("applications")}/${t("wastewater-treatment")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Services page={t("cokhi-xaydung")} />
+              <Services page={t("wastewater-treatment")} />
             </Suspense>
           ),
         },
         {
-          path: `${t("dichvu")}/${t("thoatnuoc-chieusang")}`,
+          path: `${t("applications")}/${t("water-treatment")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Services page={t("thoatnuoc-chieusang")} />
+              <Services page={t("water-treatment")} />
             </Suspense>
           ),
         },
         {
-          path: `${t("dichvu")}/${t("quantrang")}`,
+          path: `${t("applications")}/${t("mining")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Services page={t("quantrang")} />
+              <Services page={t("mining")} />
             </Suspense>
           ),
         },
         {
-          path: `${t("dichvu")}/${t("kinhdoanhkhac")}`,
+          path: `${t("applications")}/${t("pulp-and-paper")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Services page={t("kinhdoanhkhac")} />
-            </Suspense>
-          ),
-        },
-
-        {
-          path: t("cauhoi"),
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Question />
-            </Suspense>
-          ),
-        },
-        {
-          path: t("lienhe"),
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Contact data={data} />
+              <Services page={t("pulp-and-paper")} />
             </Suspense>
           ),
         },
 
         {
-          path: t("tintuc"),
+          path: t("contact-us"),
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"post"} page={"0"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("tintuc")}/${t("hoatdong")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"post"} page={"1"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("tintuc")}/${t("dangdoan")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"post"} page={"2"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("tintuc")}/${t("phapluat")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"post"} page={"3"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("tintuc")}/${t("tinkhac")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"post"} page={"4"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("tintuc")}/:threadId`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <PostItem typePost={"post"} />
+              <Contact />
             </Suspense>
           ),
         },
 
         {
-          path: t("codong"),
+          path: t("products"),
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"shareholder"} page={"0"} />
+              <Post typePost={"products"} page={"0"} />
             </Suspense>
           ),
         },
         {
-          path: `${t("codong")}/${t("thongbao")}`,
+          path: `${t("products")}/${t("chemical-science-laboratories")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"shareholder"} page={"5"} />
+              <Post typePost={"products"} page={"1"} />
             </Suspense>
           ),
         },
         {
-          path: `${t("codong")}/${t("baocao")}`,
+          path: t("case-study"),
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"shareholder"} page={"6"} />
+              <Post typePost={"case-study"} page={"0"} />
             </Suspense>
           ),
         },
         {
-          path: `${t("codong")}/:threadId`,
+          path: `${t("case-study")}/${t("technical-research")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <PostItem typePost={"shareholder"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: t("duan"),
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"project"} page={"0"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("duan")}/${t("dautu")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"project"} page={"7"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("duan")}/${t("trongnuoc")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"project"} page={"8"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("duan")}/${t("nuocngoai")}`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"project"} page={"9"} />
-            </Suspense>
-          ),
-        },
-        {
-          path: `${t("duan")}/:threadId`,
-          element: (
-            <Suspense fallback={<LoadingPage />}>
-              <PostItem typePost={"project"} />
+              <Post typePost={"case-study"} page={"5"} />
             </Suspense>
           ),
         },

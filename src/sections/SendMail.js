@@ -14,7 +14,7 @@ export default function SendMail({ id, pr_name, open,setOpen }){
   const theme = useTheme()
     
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [sbContent, setSbContent] = useState({type:"info", content:t("Đang gửi email")})
+  const [sbContent, setSbContent] = useState({type:"info", content:t("Sending email")})
   const handleClose = () => {
       setOpen(false)
 };
@@ -66,14 +66,14 @@ export default function SendMail({ id, pr_name, open,setOpen }){
             }
             setSbContent({type:result.status, content: result.msg})
             setTimeout(()=>{
-                setSbContent({type:"info", content:t("Đang gửi email")})
+                setSbContent({type:"info", content:t("Sending email")})
             },4000)
         })
         .catch(error => {
             setOpenSnackbar(true)
             setSbContent({type:'error', content: error})
             setTimeout(()=>{
-                setSbContent({type:"info", content:t("Đang gửi email")})
+                setSbContent({type:"info", content:t("Sending email")})
             },4000)
         });
     }
@@ -83,19 +83,19 @@ export default function SendMail({ id, pr_name, open,setOpen }){
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle
               sx={{
-                backgroundColor: "var(--green1)",
+                backgroundColor: "var(--main)",
                 color: "white",
                 textAlign: "center",
               }}
             >
-              {t('Gửi câu hỏi')}
+              {t('Send mail')}
             </DialogTitle>
             <DialogContent sx={{ paddingTop: "24px !important" }}>
               
               <Grid container spacing={4}>
                 <Grid item xs={6}>
                     <TextField  
-                        label={t("Tên")} 
+                        label={t("Name")} 
                         fullWidth 
                         variant="outlined" 
                         value = {contentMail["name"] || ""}
@@ -113,7 +113,7 @@ export default function SendMail({ id, pr_name, open,setOpen }){
                 </Grid>
                 <Grid item xs={6}>
                     <TextField 
-                        label={t("Số điện thoại")} 
+                        label={t("Phone number")} 
                         fullWidth 
                         variant="outlined"  
                         value = {contentMail["phone"] || ""}
@@ -122,7 +122,7 @@ export default function SendMail({ id, pr_name, open,setOpen }){
                 </Grid>
                 <Grid item xs={6}>
                     <TextField 
-                        label={t("Tiêu đề")} 
+                        label={t("Subject")} 
                         fullWidth 
                         variant="outlined"  
                         value = {contentMail["subject"] || ""}
@@ -131,7 +131,7 @@ export default function SendMail({ id, pr_name, open,setOpen }){
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
-                        label={t("Nội dung")}
+                        label={t("Content")}
                         multiline
                         rows={4}
                         fullWidth
@@ -144,7 +144,7 @@ export default function SendMail({ id, pr_name, open,setOpen }){
             <DialogActions>
               <Button sx={{color: theme.color.gray1}} onClick={handleClose}>{t('Huỷ')}</Button>
               <Button 
-              sx={{color: theme.color.green1}}  
+              sx={{color: theme.color.primary}}  
               onClick={()=>{
                 setOpenSnackbar(true)
                 handleSendMail(contentMail, setContentMail, setSbContent, setOpenSnackbar)

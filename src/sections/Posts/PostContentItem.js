@@ -63,7 +63,7 @@ export default function PostContentItem({post, categories, typePost, type}){
                                 sx={{
                                     px: theme.spacing(4),
                                     py:theme.spacing(1),
-                                    background: theme.color.green1,
+                                    background: theme.color.main,
                                     position: 'absolute',
                                     borderRadius: '4px',
                                     textAlign:'center',

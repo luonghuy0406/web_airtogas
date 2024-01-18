@@ -23,7 +23,8 @@ export default function ThemeProvider({ children }) {
       red: '#F48123',
       green2 : '#8EC542',
       green3 : '#AAD293',
-      green1: '#39A03D',
+      main: '#C499F3',
+      secondary: '#1f216e',
       gray1 : '#8A8988',
       gray2 : '#D6D5DA',
       lightBlack: '#282828'

@@ -2,11 +2,12 @@
     --white: #FFFFFF;
     --black: #000000;
     --red: #F48123;
-    /* --green1: #009961; */
+    --main: #C499F3;
+    --secondary: #1f216e;
     --green2 : #8EC542;
     --green3 : #AAD293;
-    --green1 : #39A03D;
-    --green4: #39A03D;
+    --main : #C499F3;
+    --green4: #C499F3;
     --gray1 : #8A8988;
     --gray2 : #D6D5DA;
     --lightBlack: #282828;
@@ -170,10 +171,10 @@ a {
     line-height: 1.5rem;
 }
 .blog-button a:hover{
-    color: var(--green1)
+    color: var(--main)
 }
 .blog-button a:hover .arrow-news{
-    color: var(--green1);
+    color: var(--main);
     transform: translateX(20%);
 }
 .banner-slide-image::before{

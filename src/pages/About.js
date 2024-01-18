@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import Banner from '../sections/Banner';
 import AboutContent from '../sections/About/AboutContent';
 
-export default function About({page, data, data_chart}) {
+export default function About() {
   const { t } = useTranslation();
-  const parentPath = `/${t('gioithieu')}`;
+  const parentPath = `/${t('about-us')}`;
   const pages = [
     {name: t('Về Hepco'), path:'',child:[]},
     {name: t('Chức năng - Giấy phép'), path:`/${t('chucnang')}`,child:[]},
@@ -20,16 +20,15 @@ export default function About({page, data, data_chart}) {
   return (
     <>
       <Helmet>
-          <title> {t("Giới thiệu")} | {t("HEPCO - CÔNG TY CỔ PHẦN MÔI TRƯỜNG VÀ CÔNG TRÌNH ĐÔ THỊ HUẾ")} </title>
+          <title> {t("About us")} | {t("AIR TO GAS TECHNOLOGY ASIA CO., LTD")} </title>
       </Helmet>
       <Banner
-        name={t("Giới thiệu")}
-        sub_name={t("Tiền thân là phòng quản lý đô thị và nhà đất được ra đời năm 1975, trải qua quá trình hình thành và phát triển với nhiều cột mốc thay đổi, năm 2015 Công ty trách nhiệm hữu hạn nhà nước Môi trường và Công trình Đô thị Huế trở thành Công ty Cổ phần Môi trường và Công trình đô thị Huế cho đến nay.  Là doanh nghiệp nhà nước chi phối 51% cổ phần với bộ máy tổ chức gồm 05 phòng nghiệp vụ và 13 đơn vị xí nghiệp trực thuộc, Hepco là đơn vị uy tín hàng đầu miền Trung hoạt động trong lĩnh vực vệ sinh môi trường và công trình đô thị với gần 500 khách hàng, đối tác trên địa bàn toàn tỉnh Thừa Thiên Huế.")}
+        name={t("About us")}
         image="/assets/gioithieu.png"
         path={parentPath}
         pages={pages}
       />
-      <AboutContent page={page} data={data} data_chart={data_chart}/>
+      <AboutContent />
     </>
   );
 }

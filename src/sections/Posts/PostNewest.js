@@ -35,9 +35,9 @@ export default function PostNewest({typePost, categories,type}) {
              variant='h5' 
              textAlign={"center"} 
              fontWeight={700} 
-             color={theme.color.green1}
+             color={theme.color.main}
         >
-            {t('Tin tức mới nhất')}
+            {t('Products mới nhất')}
         </Typography>
         {
             post.map((newest)=>{

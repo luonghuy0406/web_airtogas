@@ -23,7 +23,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const InvoiceBox = styled('div')(({ theme, sticky }) => ({
-  backgroundColor: theme.palette.green1,
+  backgroundColor: theme.palette.main,
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(2),
@@ -43,18 +43,18 @@ const InvoiceBox = styled('div')(({ theme, sticky }) => ({
   [theme.breakpoints.down('md')]: {
     height: '60px', // Set height for breakpoint `xs`
     '&::before': {
-      borderBottom: `60px solid ${sticky ? theme.color.green1 : theme.color.white}`,
+      borderBottom: `60px solid ${sticky ? theme.color.main : theme.color.white}`,
     }
   },
   [theme.breakpoints.up('md')]: {
     height: '70px', // Set height for breakpoint `md` and above
     '&::before': {
-      borderBottom: `70px solid ${sticky ? theme.color.green1 : theme.color.white}`,
+      borderBottom: `70px solid ${sticky ? theme.color.main : theme.color.white}`,
     }
   },
 }));
 
-export default function Header({company_data}) {
+export default function Header() {
     const {t} = useTranslation()
     const [openRight, setOpenRight] = useState(false);
     const toggleDrawer = (open) => (event) => {setOpenRight(open);};
@@ -77,60 +77,47 @@ export default function Header({company_data}) {
       };
     }, []);
     const pages = [
-      {name: t('Trang chủ'), path:'',child:[]},
+      {name: t('Home'), path:'',child:[]},
       {
-        name: t('Giới thiệu'), 
-        path:`/${t('gioithieu')}`,
+        name: t('About us'), 
+        path:`/${t('about-us')}`,
         child:[
-          {name: t('Về Hepco'), path:'',child:[]},
-          {name: t('Chức năng - Giấy phép'), path:`/${t('chucnang')}`,child:[]},
-          {name: t('Sơ đồ tổ chức'), path:`/${t('sodo')}`,child:[]},
-          {name: t('Thành tựu đạt được'), path:`/${t('thanhtuu')}`,child:[]},
-          {name: t('Hồ sơ năng lực'), path:`/${t('nangluc')}`,child:[]},
-          {name: t('Thư viện ảnh'), path:`/${t('thuvien')}`,child:[]}
         ]
       },
       {
-        name: t('Dịch vụ'), 
-        path:`/${t('dichvu')}`,
+        name: t('Applications'), 
+        path:`/${t('applications')}`,
         child:[
-          {name: t('Thu gom vận chuyển xử lý rác sinh hoạt'), path:'',child:[]},
-          {name: t('Thu gom vận chuyển xử lý rác nguy hại'), path:`/${t('nguyhai')}`,child:[]},
-          {name: t('Cơ khí - Xây dựng'), path:`/${t('cokhi-xaydung')}`,child:[]},
-          {name: t('Thoát nước - Điện chiếu sáng'), path:`/${t('thoatnuoc-chieusang')}`,child:[]},
-          {name: t('Quản trang'), path:`/${t('quantrang')}`,child:[]},
-          {name: t('Kinh doanh khác'), path:`/${t('kinhdoanhkhac')}`,child:[]},
+          {name: t('Aquaculture'), path:'',child:[]},
+          {name: t('Medical'), path:`/${t('medical')}`,child:[]},
+          {name: t('Wastewater Treatment'), path:`/${t('wastewater-treatment')}`,child:[]},
+          {name: t('Water Treatment'), path:`/${t('water-treatment')}`,child:[]},
+          {name: t('Mining'), path:`/${t('mining')}`,child:[]},
+          {name: t('Pulp and Paper'), path:`/${t('pulp-and-paper')}`,child:[]},
         ]
       },
       {
-        name: t('Tin tức'), 
-        path:`/${t('tintuc')}`,
+        name: t('Products'), 
+        path:`/${t('products')}`,
         child:[
-          {name: t('Hoạt động công ty'), path:`/${t('hoatdong')}`,child:[]},
-          {name: t('Đảng Đoàn thể'), path:`/${t('dangdoan')}`,child:[]},
-          {name: t('Pháp luật môi trường'), path:`/${t('phapluat')}`,child:[]},
-          {name: t('Tin tức khác'), path:`/${t('tinkhac')}`,child:[]},
+          {name: t('Product 1'), path:``,child:[]},
+          {name: t('Product 2'), path:`/${t('product-2')}`,child:[]},
         ]
       },
       {
-        name: t('Dự án'), 
-        path:`/${t('duan')}`,
+        name: t('Case study'), 
+        path:`/${t('case-study')}`,
         child:[
-          {name: t('Dự án đầu tư'), path:`/${t('dautu')}`,child:[]},
-          {name: t('Hợp tác trong nước'), path:`/${t('trongnuoc')}`,child:[]},
-          {name: t('Hợp tác nước ngoài'), path:`/${t('nuocngoai')}`,child:[]},
+          {name: t('Case study'), path:``,child:[]},
+          {name: t('Technical Research'), path:`/${t('technical-research')}`,child:[]}
         ]
       },
       {
-        name: t('Cổ đông'), 
-        path:`/${t('codong')}`,
+        name: t('Contact us'), 
+        path:`/${t('contact-us')}`,
         child:[
-          {name: t('Thông báo'), path:`/${t('thongbao')}`,child:[]},
-          {name: t('Báo cáo'), path:`/${t('baocao')}`,child:[]},
         ]
-    },
-      {name: t('Câu hỏi'), path:`/${t('cauhoi')}`,child:[]},
-      {name: t('Liên hệ'), path:`/${t('lienhe')}`,child:[]}
+    }
     ]
     return (
       <>
@@ -159,7 +146,7 @@ export default function Header({company_data}) {
                 spacing={2}
                 sx={{
                   height: { xs: '60px',sm: '60px', md:'70px'},
-                  backgroundColor: '#3aa03db3',
+                  backgroundColor: '#C499F3',
                   boxShadow: '0 0 20px -10px rgba(0,0,0,.8)',
                   position:'fixed',
                   left: '0',
@@ -173,7 +160,7 @@ export default function Header({company_data}) {
                   justifyContent={"center"}
                 >
                   <Link to={'/'}>
-                      <img src={'/assets/logo2.png'} alt='hepco logo' width={55} height={55} />
+                      <img src={'/assets/logo2.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={55} />
                   </Link>
                 </Stack>
                 <Stack
@@ -188,7 +175,6 @@ export default function Header({company_data}) {
                       return <MenuNav key={page.path} page={page}/>
                     })
                   }
-                  <MenuNav key={'invoice'} page={{"name":t("Hoá đơn"), "path": 'http://hepco.com.vn/hoadondientu', "child":[]}}/>
                 </Stack>
                 <Stack
                   spacing={1}
@@ -212,19 +198,19 @@ export default function Header({company_data}) {
                           <Grid item xs={0} lg={3}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }, marginBottom:'-5px'}}>
                           <img src={'/assets/icons/ic_phone.svg'} alt='icon phone' width={35} />
                           </Grid>
-                          <Grid item xs={0} lg={6}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}} container>
+                          <Grid item xs={0} lg={9}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}} container>
                               <Grid item xs={12}>
                                 <Typography fontWeight={'bold'} sx={{fontSize:'16px'}} color={theme.color.red}>{t('Hotline')}</Typography>
                               </Grid>
                               <Grid item xs={12} >
-                                <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.red}>{company_data[6].data}</Typography>
+                                <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.red}>+84 938207238</Typography>
                               </Grid>
                           </Grid>
-                          <Grid item xs={12} lg={3}> 
+                          {/* <Grid item xs={12} lg={3}> 
                             <Box sx={{display:'flex', alignItems:'center', justifyContent:'end'}}>
                               <LanguagePopover/>
                             </Box>
-                          </Grid>
+                          </Grid> */}
                         </Grid>
                       </Box>
                   </InvoiceBox>
@@ -259,7 +245,7 @@ export default function Header({company_data}) {
               justifyContent={"center"}
             >
               <Link to={'/'}>
-                  <img src={'/assets/logo1.png'} alt='hepco logo' width={60} height={60} />
+                  <img src={'/assets/logo1.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={60} />
               </Link>
             </Stack>
             <Stack
@@ -274,7 +260,6 @@ export default function Header({company_data}) {
                   return <MenuNav key={page.path} page={page} color="black"/>
                 })
               }
-              <MenuNav key={'invoice'} page={{name:t("Hoá đơn"), path: 'http://hepco.com.vn/hoadondientu', child:[]}} color="black"/>
             </Stack>
             <Stack
               spacing={1}
@@ -299,19 +284,19 @@ export default function Header({company_data}) {
                       <Grid item xs={0} lg={3}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }, marginBottom:'-5px'}}>
                         <img src={'/assets/icons/ic_phone_white.svg'} alt='icon phone' width={35} />
                       </Grid>
-                      <Grid item xs={0} lg={6}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}} container>
+                      <Grid item xs={0} lg={9}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}} container>
                           <Grid item xs={12}>
                             <Typography fontWeight={'bold'} sx={{fontSize:'16px'}} color={theme.color.white}>{t('Hotline')}</Typography>
                           </Grid>
                           <Grid item xs={12} >
-                            <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.white}>{company_data[6].data}</Typography>
+                            <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.white}>+84 938207238</Typography>
                           </Grid>
                       </Grid>
-                      <Grid item xs={12} lg={3}> 
+                      {/* <Grid item xs={12} lg={3}> 
                         <Box sx={{display:'flex', alignItems:'center', justifyContent:'end'}}>
                           <LanguagePopover/>
                         </Box>
-                      </Grid>
+                      </Grid> */}
                     </Grid>
                   </Box>
               </InvoiceBox>
@@ -345,9 +330,9 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
     <IconButton
       size="large"
       onClick={toggleDrawer(true)}
-      sx={{ p: 0 ,display: { xs: "block",md: "block", lg: "none" ,color:(theme)=>(sticky? theme.color.green1 : theme.color.white)}}}
+      sx={{ p: 0 ,display: { xs: "block",md: "block", lg: "none" ,color:(theme)=>(sticky? theme.color.main : theme.color.white)}}}
     >
-      <MenuIcon sx={{color:(theme)=>(sticky? theme.color.green1 : theme.color.white)}}/>
+      <MenuIcon sx={{color:(theme)=>(sticky? theme.color.main : theme.color.white)}}/>
     </IconButton>
     <Drawer
       anchor={'right'}

@@ -24,7 +24,7 @@ export default function PostItem({typePost}) {
         '1': {path: t("hoatdong"),name: t('Hoạt động công ty'), value:'1'},
         '2': {path: t("dangdoan"),name: t('Đảng Đoàn thể'), value:'2'},
         '3': {path: t("phapluat"),name: t('Pháp luật môi trường'), value:'3'},
-        '4': {path: t("tinkhac"),name: t('Tin tức khác'), value:'4'},
+        '4': {path: t("tinkhac"),name: t('Products khác'), value:'4'},
         '5': {path: t("thongbao"),name: t('Thông báo'), value:'5'},
         '6': {path: t("baocao"),name: t('Báo cáo'), value:'6'},
         '7': {path: t("dautu"),name: t('Dự án đầu tư'), value:'7'},
@@ -32,9 +32,9 @@ export default function PostItem({typePost}) {
         '9': {path: t("nuocngoai"),name: t('Hợp tác nước ngoài'), value:'9'}
     }
     const type = {
-        'post' : {path: t('tintuc'), name : t("Tin tức")},
+        'post' : {path: t('tintuc'), name : t("Products")},
         'project' : {path: t('duan'), name : t("Dự án")},
-        'shareholder' : {path: t('codong'), name : t("Cổ đông")},
+        'shareholder' : {path: t('codong'), name : t("Case study")},
     } 
     
     const [data,setData] = useState()
@@ -60,7 +60,7 @@ export default function PostItem({typePost}) {
   return (
     <>
         <Helmet>
-          <title>{t("HEPCO - CÔNG TY CỔ PHẦN MÔI TRƯỜNG VÀ CÔNG TRÌNH ĐÔ THỊ HUẾ")} </title>
+          <title>{t("AIR TO GAS TECHNOLOGY ASIA CO., LTD")} </title>
         </Helmet>
       <Banner name={''} image={'/assets/images/bg4.jpg'} path={`/`} pages={[]}/>
       <Container 
@@ -115,16 +115,16 @@ export default function PostItem({typePost}) {
                     <Grid item container xs={12} md={9} sx={{height:'fit-content'}}>
                     <Grid item container spacing={3} xs={12} sx={{height:'fit-content'}}>
                         <Grid item xs={12}>
-                            <Box sx={{borderLeft: `5px solid ${theme.color.green1}`, paddingLeft:theme.spacing(2)}}>
+                            <Box sx={{borderLeft: `5px solid ${theme.color.main}`, paddingLeft:theme.spacing(2)}}>
                                 <Typography variant="h4" fontWeight={700}>{data[0]?.["name_"+currentLang] || data[0]?.name}</Typography>
                                 <Box
                                     sx={{display: 'flex',alignItems:'center', paddingTop:theme.spacing(1)}}
                                 >
-                                    <Typography fontWeight={700}><PersonIcon sx={{color:theme.color.green1}}/></Typography>
+                                    <Typography fontWeight={700}><PersonIcon sx={{color:theme.color.main}}/></Typography>
                                     <Typography fontWeight={700} sx={{margin: '0px 25px 0px 10px'}} color={theme.color.gray1}>{data[0]?.author}</Typography>
-                                    <Typography fontWeight={700}><AccessTimeFilledIcon sx={{color:theme.color.green1}}/></Typography>
+                                    <Typography fontWeight={700}><AccessTimeFilledIcon sx={{color:theme.color.main}}/></Typography>
                                     <Typography fontWeight={700} sx={{margin: '0px 25px 0px 10px'}} color={theme.color.gray1}>{formatDateTime(data[0]?.cre_date,'%d-%m-%Y')}</Typography>
-                                    <Typography fontWeight={700}><CategoryIcon sx={{color:theme.color.green1}}/></Typography>
+                                    <Typography fontWeight={700}><CategoryIcon sx={{color:theme.color.main}}/></Typography>
                                     <Typography fontWeight={700} sx={{margin: '0px 25px 0px 10px'}} color={theme.color.gray1}>{categories?.[data[0]?.type_id]?.name}</Typography>
                                 </Box>
                             </Box>

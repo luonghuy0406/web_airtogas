@@ -33,7 +33,7 @@ const LoadingIcon = styled('div')(()=>({
     top: '50%',
     zIndex: 9,
     textAlign: 'center',
-    background: "#39A03D",
+    background: "#C499F3",
     '&:after': {
       content: '""',
       position: 'absolute',
@@ -48,7 +48,7 @@ const LoadingIcon = styled('div')(()=>({
       transition: 'all 200ms',
     },
     '&:before': {
-      background: "#39A03D",
+      background: "#C499F3",
       content: '""',
       position: 'absolute',
       zIndex: 0,
@@ -75,7 +75,7 @@ export default function LoadingPage() {
         sx={{
             width:"100vw" ,
             height:"100vh" ,
-            backgroundColor: "#39a03d40",
+            backgroundColor: "#C499F340",
             position:"fixed",
             zIndex: "9999999",
             top: 0,
@@ -85,7 +85,7 @@ export default function LoadingPage() {
         }}
     >
         <LoadingIcon>
-            <img src={'/assets/logo2.png'} alt='hepco logo' width={40} height={40} />    
+            <img src={'/assets/logo2.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={40} />    
         </LoadingIcon>
     </Box>
     </Box>
