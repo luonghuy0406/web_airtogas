@@ -15,8 +15,7 @@ export default function MenuNav({page, color}) {
         className='menu-item'
         sx={{minWidth:'100px'}}
         position={"relative"} 
-    >
-        
+    >   
         <Link to={normalizedTitle} style={{textDecoration:'none'}}>
             <Typography
                 key={normalizedTitle}
@@ -24,33 +23,29 @@ export default function MenuNav({page, color}) {
                     p:1,
                     display: "block",
                     fontSize: {xs: '13px', md:'14px', lg:'16px'},
-                    fontWeight: "bold",
                     borderRadius: "unset",
                     transition: "all 0.5s",
-                    // fontFamily: (theme) => theme.typography.header,
                     textTransform: 'uppercase',
                     textAlign:"center",
-                    color:  (Boolean(match) || (Boolean(matchChild) && matchChild?.pattern.path !='/:page') ? ((theme) => theme.color.red) : ((theme) => (color ? '#000': theme.color.white))),
-                    // textDecoration: open ? 'underline' :'none',
+                    color:  (Boolean(match) || (Boolean(matchChild) && matchChild?.pattern.path !='/:page') ? ((theme) => theme.color.blue) : ((theme) => (color ? '#000': theme.color.white))),
                     "&:hover": {
-                        color:  (theme) => theme.color.red,
-                        // textDecoration: 'underline',
+                        color:  (theme) => theme.color.blue,
                         cursor:"pointer"
                     },
                 }}
-                >
+            >
                 {page.name}
             </Typography>
         </Link>
 
-        <ChildMenu page={page} normalizedTitle={normalizedTitle}/>
+        <ChildMenu page={page} path={normalizedTitle}/>
 
         
     </Box>
   )
 }
 
-const ChildMenu = ({page,normalizedTitle,className='sub-menu'})=>{
+const ChildMenu = ({page,className='sub-menu',path})=>{
     if(page.child?.length == 0) return <></>
     
     return (
@@ -59,12 +54,12 @@ const ChildMenu = ({page,normalizedTitle,className='sub-menu'})=>{
         >
             {
                 page.child?.map((child)=>{
-                    const childPath = '/'+(child.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
+                    const childPath = path+'/'+(child.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
                     return (
-                        <Link key={`${childPath}`} to={`${normalizedTitle}${childPath}`}>
-                            <li>
+                        <Link key={`${childPath}`} to={`${childPath}`}>
+                            <li style={{position:'relative'}}>
                                 {child.name}
-                                <ChildMenu page={child} normalizedTitle={normalizedTitle} className='sub-menu-child'/>
+                                <ChildMenu page={child} className='sub-menu-child' path={childPath}/>
                             </li>
                         </Link>
                     )

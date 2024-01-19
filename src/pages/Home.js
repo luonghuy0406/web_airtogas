@@ -98,7 +98,7 @@ const Brand = ()=>{
       <Container maxWidth='lg' sx={{marginTop:4}}>
         <Grid container spacing={2}>
           <Grid item xs={4}>
-            <Link to='/products'>
+            <Link to='/oxygen'>
               <CoreValuestWrap >
                   <Box 
                       sx={{
@@ -125,7 +125,7 @@ const Brand = ()=>{
             </Link>
           </Grid>
           <Grid item xs={4}>
-            <Link to='/products/chemical-science-laboratories'>
+            <Link to='/csl'>
               <CoreValuestWrap >
                   <Box 
                       sx={{

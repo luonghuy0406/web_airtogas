@@ -2,6 +2,7 @@
     --white: #FFFFFF;
     --black: #000000;
     --red: #F48123;
+    --blue: #67feff;
     --main: #C499F3;
     --secondary: #7360DF;
     --green2 : #8EC542;
@@ -20,7 +21,7 @@ html {
 }
 body{
     font-family: 'Quicksand', sans-serif !important;
-    /* background-color: #f7f7f7 !important; */
+    background-color: #f9fafe !important;
 }
 a {
     text-decoration: none;
@@ -289,13 +290,11 @@ ul.sub-menu li {
     text-align: left;
     line-height: 25px;
     color: var(--white);
-    font-weight: 700;
     line-height: 2.5rem;
-    position: relative;
 }
 
 ul.sub-menu li:hover{
-    color: var(--red)
+    color: var(--blue)
 }
 
 ul.sub-menu li:hover .sub-menu-child {
@@ -308,7 +307,7 @@ ul.sub-menu li:hover .sub-menu-child {
     opacity: 0;
     position: absolute;
     top: 0;
-    right: -97%;
+    left: 107%;
     transform: scaleY(0);
     transform-origin: 0 0 0;
     transition: all .4s ease-in-out 0s;
@@ -329,12 +328,11 @@ ul.sub-menu-child li {
     text-align: left;
     line-height: 25px;
     color: var(--white);
-    font-weight: 700;
     line-height: 2.5rem;
 }
 
 ul.sub-menu-child li:hover{
-    color: var(--red)
+    color: var(--blue)
 }
 
 .line1::before{
@@ -360,4 +358,17 @@ ul.sub-menu-child li:hover{
 
 .react-flow__node:hover {
     z-index: 1 !important;
+  }
+
+  .menu-child-active{
+    height:100%;
+  }
+  .menu-child-active::before{
+    content: '';
+    width: 7px;
+    height: 90%;
+    background: var(--red);
+    margin-right: 5px;
+    position: absolute;
+    left: 0;
   }

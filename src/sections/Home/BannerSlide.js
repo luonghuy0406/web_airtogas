@@ -11,14 +11,14 @@ export function BannerSlide(){
       <LazyLoad height={200} offset={100} >
               <Box sx={{ 
                   width: "100%", 
-                  height: '550px', 
+                  // height: '550px', 
                 
                 }}
                 >
                   <video
                     id="the-video"
                     // title
-                    style={{width:"100%", height: '550px', }}
+                    style={{width:"100%" }}
                     loop
                     muted
                     playsInline

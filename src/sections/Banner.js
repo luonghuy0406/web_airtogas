@@ -11,7 +11,7 @@ export default function Banner({name, image,path,pages, sub_name}) {
             className="animate__animated animate__fadeInDown"
             sx={{ 
                 width: "100%", 
-                height: name.length > 0 ? {xs: '250px', sm: '300px', md:'400px'} : '200px', 
+                height: '200px', 
                 backgroundImage: `url(${image})`, 
                 backgroundPosition:'center', 
                 backgroundSize:'cover',
@@ -30,7 +30,7 @@ export default function Banner({name, image,path,pages, sub_name}) {
                     flexDirection: 'column'
                 }}
             >
-                <Typography fontSize="52px" mt={"40px"} textAlign={"center"} color={theme.color.white} fontWeight={"700"} className="animate__animated animate__fadeInDown">
+                <Typography fontSize="52px" textAlign={"center"} color={theme.color.white} fontWeight={"700"} className="animate__animated animate__fadeInDown">
                     {name}
                 </Typography>
             </Box>

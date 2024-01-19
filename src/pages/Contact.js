@@ -58,7 +58,7 @@ export default function Contact({data}) {
       <Container maxWidth='xl'>
         <Grid container spacing={3} pt={5} pb={15}>
           <Grid item xs={6} md={4} >
-            <Box className='our-mission-wrap' sx={{width: "100%", height: "300px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
+            <Box className='our-mission-wrap' sx={{width: "100%", height: "350px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
                 <Box
                   sx={{
                     width:"70px",
@@ -73,7 +73,7 @@ export default function Contact({data}) {
                   <img src={'/assets/icons/ic_address.svg'} alt='icon phone' width={35} />
                 </Box>
                 <Box>
-                  <Typography textAlign="center" variant="h5" fontWeight={700} color={theme.color.primay} padding={2}>{'Ho Chi Minh head office'}</Typography>
+                  <Typography textAlign="center" variant="h5" fontWeight={700} color={theme.color.primay} padding={2}>{'Ho Chi Minh Head Office'}</Typography>
                   <Typography sx={{marginBottom: 1}} fontWeight={500} color={theme.color.primay} textAlign={"left"}>16 Yen The St, Ward 2, Tan Binh Dist, Ho Chi Minh City, Viet Nam</Typography>
                   <Typography sx={{marginBottom: 1}} fontWeight={500} color={theme.color.primay} textAlign={"left"}>Tel: +84 28 3547 2693</Typography>    
                   <Typography fontWeight={500} color={theme.color.primay} textAlign={"left"}>Fax: +84 28 3547 2641</Typography> 
@@ -81,7 +81,7 @@ export default function Contact({data}) {
             </Box>
           </Grid>
           <Grid item xs={6} md={4} >
-            <Box className='our-mission-wrap' sx={{width: "100%", height: "300px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
+            <Box className='our-mission-wrap' sx={{width: "100%", height: "350px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
               <Box
                   sx={{
                     width:"70px",
@@ -104,7 +104,7 @@ export default function Contact({data}) {
             </Box>
           </Grid>
           <Grid item xs={6} md={4} >
-            <Box className='our-mission-wrap' sx={{width: "100%", height: "300px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
+            <Box className='our-mission-wrap' sx={{width: "100%", height: "350px", backgroundColor:"#fafafa", borderRadius:"10px", padding: theme.spacing(4), display:'flex', alignItems:"center",flexDirection:"column"}}>
               <Box
                   sx={{
                     width:"70px",
@@ -119,7 +119,7 @@ export default function Contact({data}) {
                   <img src={'/assets/icons/ic_address.svg'} alt='icon phone' width={35} />
                 </Box>
                 <Box>
-                  <Typography textAlign={"center"} variant="h5" fontWeight={700} color={theme.color.primary} padding={2}>{'Ha Noi office'}</Typography>
+                  <Typography textAlign={"center"} variant="h5" fontWeight={700} color={theme.color.primary} padding={2}>{'Ha Noi Office'}</Typography>
                   <Typography sx={{marginBottom: 1}} fontWeight={500} color={theme.color.primay} textAlign={"left"}>266, Quang Lai Street, Luu Phai,Ngu Hiep Commune, Thanh Tri District, Hanoi</Typography>
                   <Typography sx={{marginBottom: 1}} fontWeight={500} color={theme.color.primay} textAlign={"left"}>Tel: +84 938 207 238</Typography>   
                 </Box>

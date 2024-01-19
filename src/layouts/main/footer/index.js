@@ -79,7 +79,7 @@ export default function Footer(){
                     </Grid>
                 </Grid>
             </Container>
-            <Container maxWidth='100%' sx={{padding:theme.spacing(2), pt: theme.spacing(5), fontSize:'14px', color:theme.color.white, display:'flex', justifyContent:'end'}}>
+            <Container maxWidth='100%' sx={{padding:theme.spacing(2), pt: theme.spacing(2), fontSize:'14px', color:theme.color.white, display:'flex', justifyContent:'end'}}>
                 <Typography fontSize='14px' textAlign={"right"} color={theme.color.white}>{t('Copyright 2024 © AIR TO GAS TECHNOLOGY ASIA CO., LTD')}</Typography>
             </Container>
         </Container>

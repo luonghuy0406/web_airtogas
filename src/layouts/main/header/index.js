@@ -41,15 +41,15 @@ const InvoiceBox = styled('div')(({ theme, sticky }) => ({
     width:'inherit'
   },
   [theme.breakpoints.down('md')]: {
-    height: '60px', // Set height for breakpoint `xs`
+    height: '150px', // Set height for breakpoint `xs`
     '&::before': {
-      borderBottom: `60px solid ${sticky ? theme.color.main : theme.color.white}`,
+      borderBottom: `150px solid ${sticky ? theme.color.main : theme.color.white}`,
     }
   },
   [theme.breakpoints.up('md')]: {
-    height: '70px', // Set height for breakpoint `md` and above
+    height: '150px', // Set height for breakpoint `md` and above
     '&::before': {
-      borderBottom: `70px solid ${sticky ? theme.color.main : theme.color.white}`,
+      borderBottom: `150px solid ${sticky ? theme.color.main : theme.color.white}`,
     }
   },
 }));
@@ -59,23 +59,6 @@ export default function Header() {
     const [openRight, setOpenRight] = useState(false);
     const toggleDrawer = (open) => (event) => {setOpenRight(open);};
     const theme = useTheme();
-    const refSticky = useRef()
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.pageYOffset > 190) {
-          refSticky.current.style.display = "block";
-          refSticky.current.style.zIndex = "2";
-        }else{
-          refSticky.current.style.display = "none";
-        }
-      };
-    
-      $(window).on("scroll", handleScroll);
-    
-      return () => {
-        $(window).off("scroll", handleScroll);
-      };
-    }, []);
     const pages = [
       {name: t('Home'),child:[]},
       {
@@ -112,32 +95,32 @@ export default function Header() {
               {
                 name: t('Calibration Gas'), 
                 child:[
-                  {name: t('Calibration Gas Standards for Petrochemicals and Refinery'),child:[]},
-                  {name: t('Calibration Gas Standards For Environment Monitoring System'),child:[]},
-                  {name: t('Calibration Gas Blends / Standards For Oil & Gas Exploration'),child:[]},
-                  {name: t('Natural Gas Standards'),child:[]},
-                  {name: t('Automotive Exhaust Test Gas Mixtures'),child:[]},
-                  {name: t('CDQC Gas Blends'),child:[]},
-                  {name: t('Sukphur Gas Blends'),child:[]},
+                  // {name: t('Calibration Gas Standards for Petrochemicals and Refinery'),child:[]},
+                  // {name: t('Calibration Gas Standards For Environment Monitoring System'),child:[]},
+                  // {name: t('Calibration Gas Blends / Standards For Oil & Gas Exploration'),child:[]},
+                  // {name: t('Natural Gas Standards'),child:[]},
+                  // {name: t('Automotive Exhaust Test Gas Mixtures'),child:[]},
+                  // {name: t('CDQC Gas Blends'),child:[]},
+                  // {name: t('Sukphur Gas Blends'),child:[]},
                 ]
               },
               {
                 name: t('GAS HANDLING EQUIPMENTS'), 
                 child:[
-                  {name: t('Double Stage Pressure Regulator - SS316/Brass'),child:[]},
-                  {name: t('Single Stage Pressure Regulator – SS316/ Brass'),child:[]},
-                  {name: t('High Pressure Piston Type Pressure Regulators'),child:[]},
+                  // {name: t('Double Stage Pressure Regulator - SS316/Brass'),child:[]},
+                  // {name: t('Single Stage Pressure Regulator – SS316/ Brass'),child:[]},
+                  // {name: t('High Pressure Piston Type Pressure Regulators'),child:[]},
                 ]
               },
               {
                 name: t('POST HARVEST TECHNOLOGIES'), 
                 child:[
-                  {name: t('Controlled Atomosphere Systems'),child:[]},
-                  {name: t('Palletized CA'),child:[]},
-                  {name: t('Modified Atmosphere'),child:[]},
-                  {name: t('Memberane Based N2 Generator'),child:[]},
-                  {name: t('CO2 Scrubbers'),child:[]},
-                  {name: t('CA Accessories'),child:[]},
+                  // {name: t('Controlled Atomosphere Systems'),child:[]},
+                  // {name: t('Palletized CA'),child:[]},
+                  // {name: t('Modified Atmosphere'),child:[]},
+                  // {name: t('Memberane Based N2 Generator'),child:[]},
+                  // {name: t('CO2 Scrubbers'),child:[]},
+                  // {name: t('CA Accessories'),child:[]},
                 ]
               },
               {name: t('SUPERCRITICAL FLUID EXTRACTION SYSTEM'), path:'/supercritical-fluid-extraction-system',child:[]},
@@ -181,12 +164,12 @@ export default function Header() {
                 justifyContent="space-between"
                 spacing={2}
                 sx={{
-                  height: { xs: '60px',sm: '60px', md:'70px'},
+                  height: { xs: '150px',sm: '150px', md:'150px'},
                   backgroundColor: '#C499F3',
                   boxShadow: '0 0 20px -10px rgba(0,0,0,.8)',
-                  position:'fixed',
-                  left: '0',
-                  right:'0'
+                  // position:'fixed',
+                  // left: '0',
+                  // right:'0'
                 }}
               >
                 <Stack
@@ -196,15 +179,16 @@ export default function Header() {
                   justifyContent={"center"}
                 >
                   <Link to={'/'}>
-                      <img src={'/assets/logo2.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={55} />
+                      <img src={'/assets/logo2.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={100} />
                   </Link>
                 </Stack>
                 <Stack
                   spacing={1}
                   px={2}
                   alignItems="center"
+                  justifyContent="end"
                   direction="row"
-                  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}}
+                  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }, flexGrow: 1}}
                 >
                   {
                     pages.map((page)=>{
@@ -240,7 +224,7 @@ export default function Header() {
                                 <Typography fontWeight={'bold'} sx={{fontSize:'16px'}} color={theme.color.red}>{t('Hotline')}</Typography>
                               </Grid>
                               <Grid item xs={12} >
-                                <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.red}>+84 938207238</Typography>
+                                <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.red}>+84 938207238 (Mr.Kham)</Typography>
                               </Grid>
                           </Grid>
                           {/* <Grid item xs={12} lg={3}> 
@@ -257,90 +241,6 @@ export default function Header() {
         </Box>
       </Box>
 
-      {/* header sticky */}
-      <Container 
-        ref={refSticky} 
-        maxWidth={'100%'} 
-        sx={{padding:'0 !important',position:'fixed',top:'0', display:'none'}} 
-        className='menu-sticky sticky'
-      >
-          <Stack
-            alignItems="center"
-            direction="row"
-            justifyContent="space-between"
-            spacing={2}
-            sx={{
-              height: { xs: '60px',sm: '60px', md:'70px'},
-              backgroundColor: theme.color.white,
-              borderRadius: 0
-            }}
-          >
-            <Stack
-              spacing={2}
-              px={2}
-              alignItems="center"
-              justifyContent={"center"}
-            >
-              <Link to={'/'}>
-                  <img src={'/assets/logo1.png'} alt='AIR TO GAS TECHNOLOGY ASIA CO., LTD logo' height={60} />
-              </Link>
-            </Stack>
-            <Stack
-              spacing={1}
-              px={2}
-              alignItems="center"
-              direction="row"
-              sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}}
-            >
-              {
-                pages.map((page)=>{
-                  const normalizedTitle = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
-                  return <MenuNav key={normalizedTitle} page={page} color="black"/>
-                })
-              }
-            </Stack>
-            <Stack
-              spacing={1}
-              px={2}
-              justifyContent="flex-end"
-              flexGrow={1}
-              direction="row"
-              sx={{display: { xs: 'flex',sm: 'flex', md:'flex', lg: 'none' }}}
-            >
-              <MenuMobile toggleDrawer={toggleDrawer} openRight={openRight} pages={pages} sticky={true}/>
-            </Stack>
-
-            <Stack
-              alignItems="center"
-              direction="row"
-              spacing={2}
-              sx={{position:'relative'}}
-            >
-              <InvoiceBox theme={theme} sticky={true}>
-                  <Box sx={{zIndex:'1',position:'relative'}}>
-                    <Grid container alignItems={"center"}>
-                      <Grid item xs={0} lg={3}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }, marginBottom:'-5px'}}>
-                        <img src={'/assets/icons/ic_phone_white.svg'} alt='icon phone' width={35} />
-                      </Grid>
-                      <Grid item xs={0} lg={9}  sx={{display: { xs: 'none',sm: 'none', md:'none', lg: 'flex' }}} container>
-                          <Grid item xs={12}>
-                            <Typography fontWeight={'bold'} sx={{fontSize:'16px'}} color={theme.color.white}>{t('Hotline')}</Typography>
-                          </Grid>
-                          <Grid item xs={12} >
-                            <Typography sx={{fontSize:'16px',fontFamily:(theme)=>theme.typography.MuktaMahee}} color={theme.color.white}>+84 938207238</Typography>
-                          </Grid>
-                      </Grid>
-                      {/* <Grid item xs={12} lg={3}> 
-                        <Box sx={{display:'flex', alignItems:'center', justifyContent:'end'}}>
-                          <LanguagePopover/>
-                        </Box>
-                      </Grid> */}
-                    </Grid>
-                  </Box>
-              </InvoiceBox>
-            </Stack>
-          </Stack>
-      </Container>
     </>
     );
 }
@@ -386,7 +286,7 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
           size="large"
           onClick={toggleDrawer(false)}
         >
-          <CloseIcon sx={{color:(theme)=>theme.color.red}}/>
+          <CloseIcon sx={{color:(theme)=>theme.color.blue}}/>
         </IconButton>
         <Box sx={{padding: theme.spacing(2)}}>
           {
@@ -394,14 +294,14 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
             const normalizedTitle = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
             return (
               <Accordion key={page.name+"nav"} expanded={expanded === `pannel${page.name}`} onChange={handleChange(`pannel${page.name}`)}>
-                  <AccordionSummary sx={{padding:'10px 0',color: expanded === `pannel${page.name}` ? theme.color.red : theme.color.black}}  expandIcon={page.child?.length > 0 ? <ExpandMoreIcon /> : <></>} aria-controls={`pannel${page.name}d-content`} id={`pannel${page.name}d-header`}>
+                  <AccordionSummary sx={{padding:'10px 0',color: expanded === `pannel${page.name}` ? theme.color.blue : theme.color.black}}  expandIcon={page.child?.length > 0 ? <ExpandMoreIcon /> : <></>} aria-controls={`pannel${page.name}d-content`} id={`pannel${page.name}d-header`}>
                      <Link onClick={toggleDrawer(false)} to={normalizedTitle} style={{ textDecoration:"none", color: 'black'}}>
                       <Typography  
                           sx={{
                             fontWeight: 700,
                             color: theme.color.black,
                             '&:hover': {
-                              color: theme.color.red,
+                              color: theme.color.blue,
                             },
                           }}
                           >
@@ -421,7 +321,7 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
                                   fontWeight: 700,
                                   color: theme.color.black,
                                   '&:hover': {
-                                    color: theme.color.red,
+                                    color: theme.color.blue,
                                   },
                                 }}
                                 >

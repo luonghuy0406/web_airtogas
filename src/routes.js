@@ -6,6 +6,8 @@ import MainLayout from "./layouts/main/MainLayout";
 import LoadingPage from "./pages/LoadingPage";
 import CaseStudy from "./sections/CaseStudy/CaseStudy";
 import TechnicalReSearch from "./sections/CaseStudy/TechnicalResearch";
+import Oxygen from "./sections/Brand/Oxygen";
+import Csl from "./sections/Brand/Csl";
 
 // Lazy load the pages
 const Home = React.lazy(() => import("./pages/Home"));
@@ -121,10 +123,34 @@ export default function Router() {
           ),
         },
         {
+          path: "/products/:productSlug/:productSub",
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Product/>
+            </Suspense>
+          ),
+        },
+        {
           path: t("case-study"),
           element: (
             <Suspense fallback={<LoadingPage />}>
               <CaseStudy/>
+            </Suspense>
+          ),
+        },
+        {
+          path: t("oxygen"),
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Oxygen/>
+            </Suspense>
+          ),
+        },
+        {
+          path: t("csl"),
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Csl/>
             </Suspense>
           ),
         },
