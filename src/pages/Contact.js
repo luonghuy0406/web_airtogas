@@ -47,10 +47,10 @@ export default function Contact({data}) {
   return (
     <>
       <Helmet>
-          <title> {t("Contact us")} | {t("AIR TO GAS TECHNOLOGY ASIA CO., LTD")} </title>
+          <title> {t("Contact")} | {t("AIR TO GAS TECHNOLOGY ASIA CO., LTD")} </title>
       </Helmet>
       <Banner 
-        name={t("Contact us")} 
+        name={t("Contact")} 
         image={'/assets/gioithieu.png'} 
         path={`/${t('lienhe')}`} 
         pages={pages}

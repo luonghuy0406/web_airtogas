@@ -1,15 +1,4 @@
-// 'a' : days[date.getDay()],
-// 'Y' : date.getFullYear(),
-// 'y' : date.getFullYear().toString().substring(2,4),
-// 'm' : intPad((date.getMonth()+1), 2),
-// 'n' : date.getMonth()+1,
-// 'd' : intPad(date.getDate(), 2),
-// 'e' : date.getDate(),
-// 'H' : intPad(date.getHours(), 2),
-// 'h' : date.getHours(),
-// 'M' : intPad(date.getMinutes(), 2),
-// 'S' : intPad(date.getSeconds(), 2),
-// '3' : intPad(date.getMilliseconds(), 3),
+
 export function formatDateTime(dateStr, format='') {
 	let date = new Date()
 	date = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate())

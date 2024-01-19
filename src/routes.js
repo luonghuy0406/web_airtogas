@@ -4,13 +4,15 @@ import { useTranslation } from "react-i18next";
 
 import MainLayout from "./layouts/main/MainLayout";
 import LoadingPage from "./pages/LoadingPage";
+import CaseStudy from "./sections/CaseStudy/CaseStudy";
+import TechnicalReSearch from "./sections/CaseStudy/TechnicalResearch";
 
 // Lazy load the pages
 const Home = React.lazy(() => import("./pages/Home"));
 const About = React.lazy(() => import("./pages/About"));
 const Services = React.lazy(() => import("./pages/Services"));
 const Contact = React.lazy(() => import("./pages/Contact"));
-const Post = React.lazy(() => import("./pages/Post"));
+const Product = React.lazy(() => import("./pages/Product"));
 
 export default function Router() {
   const { t } = useTranslation();
@@ -42,6 +44,14 @@ export default function Router() {
           element: (
             <Suspense fallback={<LoadingPage />}>
               <Services />
+            </Suspense>
+          ),
+        },
+        {
+          path: `${t("applications")}/${t("aquaculture")}`,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Services page={t("aquaculture")} />
             </Suspense>
           ),
         },
@@ -94,20 +104,19 @@ export default function Router() {
             </Suspense>
           ),
         },
-
         {
-          path: t("products"),
+          path: "/products",
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"products"} page={"0"} />
+              <Product/>
             </Suspense>
           ),
         },
         {
-          path: `${t("products")}/${t("chemical-science-laboratories")}`,
+          path: "/products/:productSlug",
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"products"} page={"1"} />
+              <Product/>
             </Suspense>
           ),
         },
@@ -115,7 +124,15 @@ export default function Router() {
           path: t("case-study"),
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"case-study"} page={"0"} />
+              <CaseStudy/>
+            </Suspense>
+          ),
+        },
+        {
+          path: `${t("case-study")}/${t("case-study")}`,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <CaseStudy/>
             </Suspense>
           ),
         },
@@ -123,7 +140,7 @@ export default function Router() {
           path: `${t("case-study")}/${t("technical-research")}`,
           element: (
             <Suspense fallback={<LoadingPage />}>
-              <Post typePost={"case-study"} page={"5"} />
+              <TechnicalReSearch/>
             </Suspense>
           ),
         },

@@ -24,7 +24,7 @@ export default function ThemeProvider({ children }) {
       green2 : '#8EC542',
       green3 : '#AAD293',
       main: '#C499F3',
-      secondary: '#1f216e',
+      secondary: '#7360DF',
       gray1 : '#8A8988',
       gray2 : '#D6D5DA',
       lightBlack: '#282828'

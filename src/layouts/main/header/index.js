@@ -77,47 +77,83 @@ export default function Header() {
       };
     }, []);
     const pages = [
-      {name: t('Home'), path:'',child:[]},
+      {name: t('Home'),child:[]},
       {
         name: t('About us'), 
-        path:`/${t('about-us')}`,
         child:[
         ]
       },
       {
         name: t('Applications'), 
-        path:`/${t('applications')}`,
         child:[
-          {name: t('Aquaculture'), path:'',child:[]},
-          {name: t('Medical'), path:`/${t('medical')}`,child:[]},
-          {name: t('Wastewater Treatment'), path:`/${t('wastewater-treatment')}`,child:[]},
-          {name: t('Water Treatment'), path:`/${t('water-treatment')}`,child:[]},
-          {name: t('Mining'), path:`/${t('mining')}`,child:[]},
-          {name: t('Pulp and Paper'), path:`/${t('pulp-and-paper')}`,child:[]},
+          {name: t('Aquaculture'),child:[]},
+          {name: t('Medical'), child:[]},
+          {name: t('Wastewater Treatment'), child:[]},
+          {name: t('Mining'), child:[]},
+          {name: t('Pulp and Paper'), child:[]},
         ]
       },
       {
         name: t('Products'), 
-        path:`/${t('products')}`,
         child:[
-          {name: t('Product 1'), path:``,child:[]},
-          {name: t('Product 2'), path:`/${t('product-2')}`,child:[]},
+          {
+            name: t('OXYGEN SOLUTIONS'), 
+            path:``,
+            child:[
+              {name: t('Single-bed Oxygen Concentrators'),child:[]},
+              {name: t('Dual-bed Oxygen Concentrators'), child:[]},
+              {name: t('Ozone Generator'),child:[]},
+              {name: t('Other'), child:[]}
+            ]
+          },
+          {
+            name: t('CHEMICAL SCIENCE LABORATORIES'), 
+            child:[
+              {
+                name: t('Calibration Gas'), 
+                child:[
+                  {name: t('Calibration Gas Standards for Petrochemicals and Refinery'),child:[]},
+                  {name: t('Calibration Gas Standards For Environment Monitoring System'),child:[]},
+                  {name: t('Calibration Gas Blends / Standards For Oil & Gas Exploration'),child:[]},
+                  {name: t('Natural Gas Standards'),child:[]},
+                  {name: t('Automotive Exhaust Test Gas Mixtures'),child:[]},
+                  {name: t('CDQC Gas Blends'),child:[]},
+                  {name: t('Sukphur Gas Blends'),child:[]},
+                ]
+              },
+              {
+                name: t('GAS HANDLING EQUIPMENTS'), 
+                child:[
+                  {name: t('Double Stage Pressure Regulator - SS316/Brass'),child:[]},
+                  {name: t('Single Stage Pressure Regulator – SS316/ Brass'),child:[]},
+                  {name: t('High Pressure Piston Type Pressure Regulators'),child:[]},
+                ]
+              },
+              {
+                name: t('POST HARVEST TECHNOLOGIES'), 
+                child:[
+                  {name: t('Controlled Atomosphere Systems'),child:[]},
+                  {name: t('Palletized CA'),child:[]},
+                  {name: t('Modified Atmosphere'),child:[]},
+                  {name: t('Memberane Based N2 Generator'),child:[]},
+                  {name: t('CO2 Scrubbers'),child:[]},
+                  {name: t('CA Accessories'),child:[]},
+                ]
+              },
+              {name: t('SUPERCRITICAL FLUID EXTRACTION SYSTEM'), path:'/supercritical-fluid-extraction-system',child:[]},
+              {name: t('OTHER'),child:[]},
+            ]
+          },
         ]
       },
       {
         name: t('Case study'), 
-        path:`/${t('case-study')}`,
         child:[
-          {name: t('Case study'), path:``,child:[]},
-          {name: t('Technical Research'), path:`/${t('technical-research')}`,child:[]}
+          {name: t('Case study'),child:[]},
+          {name: t('Technical Research'), child:[]}
         ]
       },
-      {
-        name: t('Contact us'), 
-        path:`/${t('contact-us')}`,
-        child:[
-        ]
-    }
+      {name: t('Contact'), child:[]}
     ]
     return (
       <>
@@ -172,7 +208,8 @@ export default function Header() {
                 >
                   {
                     pages.map((page)=>{
-                      return <MenuNav key={page.path} page={page}/>
+                      const normalizedTitle = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
+                      return <MenuNav key={normalizedTitle} page={page}/>
                     })
                   }
                 </Stack>
@@ -257,7 +294,8 @@ export default function Header() {
             >
               {
                 pages.map((page)=>{
-                  return <MenuNav key={page.path} page={page} color="black"/>
+                  const normalizedTitle = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
+                  return <MenuNav key={normalizedTitle} page={page} color="black"/>
                 })
               }
             </Stack>
@@ -353,10 +391,11 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
         <Box sx={{padding: theme.spacing(2)}}>
           {
           pages.map((page) => {
+            const normalizedTitle = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
             return (
               <Accordion key={page.name+"nav"} expanded={expanded === `pannel${page.name}`} onChange={handleChange(`pannel${page.name}`)}>
                   <AccordionSummary sx={{padding:'10px 0',color: expanded === `pannel${page.name}` ? theme.color.red : theme.color.black}}  expandIcon={page.child?.length > 0 ? <ExpandMoreIcon /> : <></>} aria-controls={`pannel${page.name}d-content`} id={`pannel${page.name}d-header`}>
-                     <Link onClick={toggleDrawer(false)} to={page.path} style={{ textDecoration:"none", color: 'black'}}>
+                     <Link onClick={toggleDrawer(false)} to={normalizedTitle} style={{ textDecoration:"none", color: 'black'}}>
                       <Typography  
                           sx={{
                             fontWeight: 700,
@@ -373,8 +412,10 @@ function MenuMobile({toggleDrawer,openRight,pages,sticky}){
                   <AccordionDetails>
                       {
                         page.child.map((child)=>{
+                          const pagePath = '/'+(page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
+                          const childPath = '/'+(child.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')   
                           return (
-                          <Link onClick={toggleDrawer(false)} key={`${page.path}${child.path}`} to={`${page.path}${child.path}`} style={{ textDecoration:"none", color: 'black', padding:'10px'}}>
+                          <Link onClick={toggleDrawer(false)} key={`${pagePath}${childPath}`} to={`${pagePath}${childPath}`} style={{ textDecoration:"none", color: 'black', padding:'10px'}}>
                             <Typography  
                                 sx={{
                                   fontWeight: 700,
