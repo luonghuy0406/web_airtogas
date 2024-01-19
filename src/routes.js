@@ -97,7 +97,7 @@ export default function Router() {
         },
 
         {
-          path: t("contact-us"),
+          path: t("contact"),
           element: (
             <Suspense fallback={<LoadingPage />}>
               <Contact />
