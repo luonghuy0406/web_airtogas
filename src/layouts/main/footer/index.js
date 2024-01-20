@@ -39,7 +39,7 @@ export default function Footer(){
                 backgroundColor: theme.color.secondary,
             }}
         >
-            <Container maxWidth='xl' sx={{padding:theme.spacing(4)}} ref={footerRef}>
+            <Container maxWidth='xl' sx={{paddingTop:theme.spacing(4)}} ref={footerRef}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={12}>
                         <Typography sx={{marginBottom: 3}} variant='h5' fontWeight={600} color={theme.color.white}>AIR TO GAS TECHNOLOGY ASIA CO., LTD</Typography>

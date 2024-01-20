@@ -33,8 +33,9 @@ export default Home;
 
 const CoreValuestWrap = styled(Box)(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.color.white,
-  borderRadius: '10px',
+  backgroundColor: "#4575ff",
+  borderRadius: '50%',
+  aspectRatio: 1,
   height: '100%',
   '&:hover':{
       boxShadow: '0 0 15px #eee',
@@ -43,22 +44,22 @@ const CoreValuestWrap = styled(Box)(({ theme }) => ({
       justifyContent:'center'
   },
   '&:after': {
-    borderRadius:'5px',
+    borderRadius:'50%',
     content: '""',
     display: 'block',
-    background: theme.color.red,
+    background: "#00000073",
     position: 'absolute',
-    top: '20px',
-    left: '20px',
-    bottom: '20px',
-    right: '20px',
+    top: '0',
+    left: '0',
+    bottom: '0',
+    right: '0',
     opacity: 0,
-    transform: 'rotateY(90deg)',
+    // transform: 'rotateY(90deg)',
     transformOrigin: '0 0',
     transition: 'all .4s ease-in-out 0s',
   },
   '&:hover:after': {
-    transform: 'rotateY(0)',
+    // transform: 'rotateY(0)',
     opacity: 0.8,
 
     transition: 'all .4s ease-in-out 0s',
@@ -103,9 +104,10 @@ const Brand = ()=>{
                   <Box 
                       sx={{
                           position:'relative',
-                          backgroundColor: theme.color.white,
                           p:theme.spacing(5), 
-                          borderRadius:"10px", 
+                          borderRadius:"50%", 
+                          aspectRatio: 1,
+                          backgroundColor: "#4575ff",
                           height: '100%',
                           minHeight: '350px',
                           alignItems: 'center',
@@ -117,9 +119,8 @@ const Brand = ()=>{
                   >
                       <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px'}} fontWeight={"bold"} dangerouslySetInnerHTML={{__html:'OXYGEN SOLUTIONS'}}/>
                       <Box className='core-value-content' sx={{display:'none', position:'relative'}} fontWeight={600} dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s	
-                              
-                              `}}/>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s `}}/>
+                        {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
                   </Box>
               </CoreValuestWrap>
             </Link>
@@ -130,11 +131,12 @@ const Brand = ()=>{
                   <Box 
                       sx={{
                           position:'relative',
-                          backgroundColor: theme.color.white,
+                          borderRadius:"50%", 
+                          backgroundColor: "#4575ff",
                           p:theme.spacing(5), 
-                          borderRadius:"10px", 
                           height: '100%',
                           minHeight: '350px',
+                          aspectRatio: 1,
                           alignItems: 'center',
                           justifyContent: 'center',
                           display: 'flex',
@@ -147,6 +149,7 @@ const Brand = ()=>{
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s	
                               
                               `}}/>
+                              {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
                   </Box>
               </CoreValuestWrap>
             </Link>
@@ -157,11 +160,12 @@ const Brand = ()=>{
                   <Box 
                       sx={{
                           position:'relative',
-                          backgroundColor: theme.color.white,
+                          borderRadius:"50%", 
+                          backgroundColor: "#4575ff",
                           p:theme.spacing(5), 
-                          borderRadius:"10px", 
                           height: '100%',
                           minHeight: '350px',
+                          aspectRatio: 1,
                           alignItems: 'center',
                           justifyContent: 'center',
                           display: 'flex',
@@ -174,6 +178,7 @@ const Brand = ()=>{
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s	
                               
                               `}}/>
+                              {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
                   </Box>
               </CoreValuestWrap>
             </Link>
@@ -268,7 +273,7 @@ const Customers = ()=>{
   const {t} = useTranslation()
   return(
     <Box sx={{marginBottom:5, marginTop:4}}>
-        <Typography sx={{marginBottom:2}} variant="h4" textAlign={"center"} fontWeight={700} color={theme.color.secondary}>{t('CUSTOMERS')}</Typography>
+        <Typography sx={{marginBottom:2}} mt={3} variant="h4" textAlign={"center"} fontWeight={700} color={theme.color.secondary}>{t('CUSTOMERS')}</Typography>
         <Carousel
             additionalTransfrom={0}
             arrows={false}
@@ -295,7 +300,7 @@ const Customers = ()=>{
                         max: 3000,
                         min: 1024
                     },
-                    items: 6,
+                    items: 4,
                     partialVisibilityGutter: 40
                 },
                 mobile: {
@@ -328,7 +333,7 @@ const Customers = ()=>{
                 Array(20).fill().map((cus,index)=>{
                   return(
                     <LazyLoad key={"cus"+index} offset={100} style={{height:"100%"}}>
-                      <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
+                      <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"200px"}}>
                           <Image  src={`/assets/cus.png`} width="100%"/>
                       </Box>
                     </LazyLoad>
