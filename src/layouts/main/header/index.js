@@ -95,7 +95,7 @@ export default function Header() {
               {
                 name: t('Calibration Gas'), 
                 child:[
-                  // {name: t('Calibration Gas Standards for Petrochemicals and Refinery'),child:[]},
+                  // {name: t('Calibration gas blends for Petrochemicals & Refinery'),child:[]},
                   // {name: t('Calibration Gas Standards For Environment Monitoring System'),child:[]},
                   // {name: t('Calibration Gas Blends / Standards For Oil & Gas Exploration'),child:[]},
                   // {name: t('Natural Gas Standards'),child:[]},

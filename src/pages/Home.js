@@ -117,11 +117,18 @@ const Brand = ()=>{
                       }} 
                       className={"core-values-wrap"}
                   >
-                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px'}} fontWeight={"bold"} dangerouslySetInnerHTML={{__html:'OXYGEN SOLUTIONS'}}/>
-                      <Box className='core-value-content' sx={{display:'none', position:'relative'}} fontWeight={600} dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s `}}/>
-                        {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
-                  </Box>
+                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px',display:'flex',alignItems:'center'}} fontWeight={"bold"}>
+                        <Image  src={`/assets/oxygen_logo.png`} width="100%"/>
+                      </Box>
+                      <Box className='core-value-content' sx={{display:'none', position:'relative',flexDirection: 'column'}} fontWeight={600} >
+                          <Box  
+                            fontWeight={600} 
+                            dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}}>
+                           </Box>
+                          <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography>
+                        </Box>
+                      
+                    </Box>
               </CoreValuestWrap>
             </Link>
           </Grid>
@@ -144,12 +151,17 @@ const Brand = ()=>{
                       }} 
                       className={"core-values-wrap"}
                   >
-                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px'}} fontWeight={"bold"} dangerouslySetInnerHTML={{__html:'CHEMICAL SCIENCE LABORATORIES'}}/>
-                      <Box className='core-value-content' sx={{display:'none', position:'relative'}} fontWeight={600} dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s	
-                              
-                              `}}/>
-                              {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
+                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px',display:'flex',alignItems:'center'}} fontWeight={"bold"}>
+                        <Image  src={`/assets/csl_logo.jpeg`} width="100%"/>
+                      </Box>
+                      <Box className='core-value-content' sx={{display:'none', position:'relative',flexDirection: 'column'}} fontWeight={600} >
+                          <Box  
+                            fontWeight={600} 
+                            dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}}>
+                           </Box>
+                          <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography>
+                        </Box>
+                     
                   </Box>
               </CoreValuestWrap>
             </Link>
@@ -173,13 +185,17 @@ const Brand = ()=>{
                       }} 
                       className={"core-values-wrap"}
                   >
-                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px'}} fontWeight={"bold"} dangerouslySetInnerHTML={{__html:'VHI'}}/>
-                      <Box className='core-value-content' sx={{display:'none', position:'relative'}} fontWeight={600} dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s	
-                              
-                              `}}/>
-                              {/* <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography> */}
-                  </Box>
+                      <Box className='core-value-title' fontSize={'18px'} py={2} sx={{height:'50px',display:'flex',alignItems:'center'}} fontWeight={"bold"}>
+                        <Image  src={`/assets/vhi_logo.png`} width="100%"/>
+                      </Box>
+                      <Box className='core-value-content' sx={{display:'none', position:'relative',flexDirection: 'column'}} fontWeight={600} >
+                          <Box  
+                            fontWeight={600} 
+                            dangerouslySetInnerHTML={{__html:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s`}}>
+                           </Box>
+                          <Typography textAlign="center" textDecoration="underline" color={theme.color.white}>See more</Typography>
+                      </Box>
+                      </Box>
               </CoreValuestWrap>
             </Link>
           </Grid>
