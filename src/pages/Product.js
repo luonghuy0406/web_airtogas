@@ -69,35 +69,38 @@ export default function Product() {
     setExpanded(isExpanded ? panel : false);
   };
   let data = ''
-  if(productSlug == 'oxygen-solutions'){
-    if(!productSub){
-      data = product[0].child[0]
-    }else{
-      const temp = product[0].child
-      data = temp.find((pr)=>{
-        return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
-      })
-    }
+  if(!productSlug && !productSub){
+    data = product[0].child[0]
   }else{
-    if(productSlug == 'chemical-science-laboratories' && !productSub){
-      data = product[1].child[0].child[0]
-    }else if(productSlug == 'chemical-science-laboratories'){
-      const temp = product[1].child
-      data = temp.find((pr)=>{
-        return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
-      })
-      data = data?.content ? data : data?.child?.[0]
+    if(productSlug == 'oxygen-solutions'){
+      if(!productSub){
+        data = product[0].child[0]
+      }else{
+        const temp = product[0].child
+        data = temp.find((pr)=>{
+          return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
+        })
+      }
     }else{
-      const temp1 = product[1].child
-      let t = []
-      t = temp1.map((x)=>[...t,...x.child])
-      t=[...t[0], ...t[1]]
-      data = t.find((pr)=>{
-        return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
-      })
+      if(productSlug == 'chemical-science-laboratories' && !productSub){
+        data = product[1].child[0].child[0]
+      }else if(productSlug == 'chemical-science-laboratories'){
+        const temp = product[1].child
+        data = temp.find((pr)=>{
+          return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
+        })
+        data = data?.content ? data : data?.child?.[0]
+      }else{
+        const temp1 = product[1].child
+        let t = []
+        t = temp1.map((x)=>[...t,...x.child])
+        t=[...t[0], ...t[1]]
+        data = t.find((pr)=>{
+          return pr.name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') === productSub
+        })
+      }
     }
   }
-
   return (
     <>
       <Helmet>
@@ -160,8 +163,11 @@ const RenderSubMenu = ({n,child}) => {
     
   };
   useEffect(()=>{
-    if(expanded !== `pannel-${productSub}`){
+    if((productSlug=='chemical-science-laboratories' || productSlug=='oxygen-solutions') && expanded !== `pannel-${productSub}`){
       setExpanded(false)
+    }
+    if(productSlug=='chemical-science-laboratories' && name == 'calibration-gas'){
+      setExpanded(`pannel-calibration-gas`)
     }
   },[productSlug])
   if (child?.length > 0) {
@@ -178,11 +184,33 @@ const RenderSubMenu = ({n,child}) => {
 const MenuSideBar = ({ page, path='',expanded,setExpanded, handleChange, root=false }) => {
   const name = (page.name).toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')
   const theme = useTheme()
-  
   return (
-    <Accordion expanded={expanded === `pannel-${name}`} onChange={handleChange(`pannel-${name}`)}>
-      <AccordionSummary className={(!root&&expanded === `pannel-${name}`) ? 'menu-child-active':''} expandIcon={page.child?.length > 0 ? <ExpandMoreIcon /> : null} sx={{borderRadius:'2px',backgroundColor: root&& expanded === `pannel-${name}` ? theme.color.red : theme.color.white}}>
-        <Link to={`/products${path}/${name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <>
+      {
+        page.child?.length > 0 ?
+        <Accordion expanded={expanded === `pannel-${name}`} onChange={handleChange(`pannel-${name}`)}>
+          <Link to={`/products${path}/${name}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <AccordionSummary className={(!root&&expanded === `pannel-${name}`) ? 'menu-child-active':''} expandIcon={page.child?.length > 0 ? <ExpandMoreIcon /> : null} sx={{borderRadius:'2px',backgroundColor: root&& expanded === `pannel-${name}` ? theme.color.red : theme.color.white}}>
+                  <Typography  
+                      sx={{
+                        fontWeight: 700, 
+                        color: root&&expanded === `pannel-${name}` ? theme.color.white :theme.color.black,
+                        '&:hover': {
+                          color: theme.color.red,
+                        },
+                      }}
+                      >
+                        {page.name} 
+                    </Typography>
+            </AccordionSummary>
+          </Link>
+          <AccordionDetails>
+            
+            <RenderSubMenu n={page.name} child={page.child}/>
+          </AccordionDetails>
+        </Accordion>
+        :
+        <Link to={`/products${path}/${name}`} style={{ textDecoration: 'none', color: 'inherit', margin: '12px 0' }}>
             <Typography  
                 sx={{
                   fontWeight: 700, 
@@ -190,17 +218,15 @@ const MenuSideBar = ({ page, path='',expanded,setExpanded, handleChange, root=fa
                   '&:hover': {
                     color: theme.color.red,
                   },
+                  margin: '12px 0' ,
+                  padding: '0 16px'
                 }}
                 >
                   {page.name} 
               </Typography>
-        </Link>
-      </AccordionSummary>
-      <AccordionDetails>
-        
-        <RenderSubMenu n={page.name} child={page.child}/>
-      </AccordionDetails>
-    </Accordion>
+          </Link>
+      }
+    </>
     
   );
 };
