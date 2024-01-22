@@ -268,10 +268,10 @@ const About = ()=>{
                   slidesToSlide={1}
                   >
                     <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%", minHeight:300}}>
-                      <Card sx={{ height: '100%', width:'100%' }}>
+                      <Card sx={{ height: '100%', width:'100%', boxShadow:'unset' }}>
                         <CardMedia
-                          sx={{ height: '100%', width:'100%' }}
-                          image="https://placehold.co/600x400"
+                          sx={{ height: '100%', width:'100%', boxShadow:'unset' }}
+                          image="/assets/about3.jpeg"
                           title="green iguana"
                         />
                       </Card>

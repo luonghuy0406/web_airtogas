@@ -102,78 +102,31 @@ export default function AboutContent() {
               slidesToSlide={2}
               swipeable
               >
-                <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
-                  <Card >
-                    <CardMedia
-                      sx={{ height: 200 }}
-                      image="https://placehold.co/400"
-                      title="green iguana"
-                    />
-                    <CardContent>
-                      <Typography textAlign={"center"} variant="h4" component="div">
-                        Year
-                      </Typography>
-                      <Typography variant="body2">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
-                <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
-                  <Card >
-                    <CardMedia
-                      sx={{ height: 200 }}
-                      image="https://placehold.co/400"
-                      title="green iguana"
-                    />
-                    <CardContent>
-                      <Typography textAlign={"center"} variant="h4" component="div">
-                        Year
-                      </Typography>
-                      <Typography variant="body2">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
-                <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
-                  <Card >
-                    <CardMedia
-                      sx={{ height: 200 }}
-                      image="https://placehold.co/400"
-                      title="green iguana"
-                    />
-                    <CardContent>
-                      <Typography textAlign={"center"} variant="h4" component="div">
-                        Year
-                      </Typography>
-                      <Typography variant="body2">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
-                <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
-                  <Card >
-                    <CardMedia
-                      sx={{ height: 200 }}
-                      image="https://placehold.co/400"
-                      title="green iguana"
-                    />
-                    <CardContent>
-                      <Typography textAlign={"center"} variant="h4" component="div">
-                        Year
-                      </Typography>
-                      <Typography variant="body2">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Box>
+                {
+                  Array(4).fill().map(()=>{
+                    return(
+                    <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%"}}>
+                      <Card>
+                        <CardMedia
+                          sx={{ height: 200}}
+                          image="/assets/logo1.png"
+                          title="green iguana"
+                        />
+                        <CardContent>
+                          <Typography textAlign={"center"} variant="h4" component="div">
+                            Year
+                          </Typography>
+                          <Typography variant="body2">
+                            Lizards are a widespread group of squamate reptiles, with over 6,000
+                            species, ranging across all continents except Antarctica
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Box>
+  
+                    )
+                  })
+                }
                 
             </Carousel>
           </Grid>
