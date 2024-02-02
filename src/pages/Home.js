@@ -267,15 +267,19 @@ const About = ()=>{
                   }}
                   slidesToSlide={1}
                   >
-                    <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%", minHeight:300}}>
-                      <Card sx={{ height: '100%', width:'100%', boxShadow:'unset' }}>
-                        <CardMedia
-                          sx={{ height: '100%', width:'100%', boxShadow:'unset' }}
-                          image="/assets/about3.jpeg"
-                          title="green iguana"
-                        />
-                      </Card>
-                    </Box>
+                    {['about1.jpeg','about2.jpeg','about3.jpeg','about4.jpg','about5.jpg'].map((a,index)=>{
+                      return(
+                      <Box sx={{p:3, display:'flex', alignItems:"center", justifyContent:"center", height:"100%", minHeight:300}}>
+                        <Card sx={{ height: '100%', width:'100%', boxShadow:'unset' }}>
+                          <CardMedia
+                            sx={{ height: '100%', width:'100%', boxShadow:'unset' }}
+                            image={`/assets/${a}`}
+                            title="green iguana"
+                          />
+                        </Card>
+                      </Box>
+                      )
+                    })}
                     
                 </Carousel>
               </Grid>
